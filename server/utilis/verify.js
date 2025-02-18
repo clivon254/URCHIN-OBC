@@ -1,6 +1,6 @@
 
 import jwt from "jsonwebtoken"
-import { errorahandler } from "./error.js"
+import { errorHandler } from "./error.js"
 
 
 export const verifyToken = (req,res,next) => {
@@ -9,7 +9,7 @@ export const verifyToken = (req,res,next) => {
 
     if(!token)
     {
-        return next(errorahandler(401,"Unauthorized ,no token in the cookies"))
+        return next(errorHandler(401,"Unauthorized ,no token in the cookies"))
     }
 
     jwt.verify(token , process.env.JWT_SECRETE ,(err,user) => {
