@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser"
 import cors from "cors"
 import morgan from "morgan"
 import authRouter from "./router/authRouter.js"
+import userRouter from "./router/userRouter.js"
 
 
 const app = express()
@@ -50,8 +51,18 @@ app.get("/" , (req,res) => {
 })
 
 
+
 // ROUTES
+
 app.use('/api/auth', authRouter)
+
+
+app.use('/api/user', userRouter)
+
+
+
+
+
 
 
 // listening
