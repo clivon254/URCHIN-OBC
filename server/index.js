@@ -14,6 +14,7 @@ import roleRouter from "./router/roleRouter.js"
 import partnerRouter from "./router/partnerRouter.js"
 import programRouter from "./router/programRouter.js"
 import careerRouter from "./router/careerRouter.js"
+import intershipRouter from "./router/intershipRouter.js"
 
 
 const app = express()
@@ -82,6 +83,10 @@ app.use('/api/program', programRouter)
 
 
 app.use('/api/career', careerRouter)
+
+
+app.use('/api/intership', intershipRouter)
+
 
 
 
