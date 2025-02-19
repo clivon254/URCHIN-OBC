@@ -13,6 +13,7 @@ import blogRouter from "./router/blogRouter.js"
 import roleRouter from "./router/roleRouter.js"
 import partnerRouter from "./router/partnerRouter.js"
 import programRouter from "./router/programRouter.js"
+import careerRouter from "./router/careerRouter.js"
 
 
 const app = express()
@@ -78,6 +79,10 @@ app.use('/api/partner', partnerRouter)
 
 
 app.use('/api/program', programRouter)
+
+
+app.use('/api/career', careerRouter)
+
 
 
 
