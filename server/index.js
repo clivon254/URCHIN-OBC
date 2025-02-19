@@ -15,6 +15,8 @@ import partnerRouter from "./router/partnerRouter.js"
 import programRouter from "./router/programRouter.js"
 import careerRouter from "./router/careerRouter.js"
 import intershipRouter from "./router/intershipRouter.js"
+import programApplicationRouter from "./router/programApplicationRouter.js"
+import careerApplicationRouter from "./router/careerApplicationRouter.js"
 
 
 const app = express()
@@ -43,11 +45,11 @@ app.use(cookieParser())
 
 
 
-// db connection
+// DB CONNECTION
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("DB CONNECTED"))
 .catch((error) => console.log(error))
-
+ 
 
 
 // API
@@ -82,10 +84,18 @@ app.use('/api/partner', partnerRouter)
 app.use('/api/program', programRouter)
 
 
+app.use('/api/programApplication', programApplicationRouter)
+
+
 app.use('/api/career', careerRouter)
 
 
+app.use('/api/careerApplication', careerApplicationRouter)
+
+
 app.use('/api/intership', intershipRouter)
+
+
 
 
 

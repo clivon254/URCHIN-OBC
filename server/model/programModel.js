@@ -10,7 +10,11 @@ const programSchema = new mongoose.Schema(
 
         description:{type:String , required:true},
 
+        DateOfBirth:{type:Date , required:true},
+
         startDate:{type:Date , required:true},
+
+        enrolled:[{type:mongoose.Schema.Types.ObjectId , ref:"User"}],
 
         endDate:{type:Date},
 

@@ -13,11 +13,11 @@ export const SignUp =  async (req,res,next) => {
     try
     {
 
-        const {email,password,username,phone,gender,age,skill} = req.body
+        const {email,password,username,phone,gender,skill,Nationality,DateOfBirth} = req.body
 
         if(
-            !email || !password || !username || !phone || !gender || !age || !skill 
-            || email === "" || password === "" || username === "" || phone === "" || gender === "" || age === ""|| skill === ""
+            !email || !password || !username || !phone || !gender || !skill || !Nationality || Nationality === "" || !DateOfBirth 
+            || email === "" || password === "" || username === "" || phone === "" || gender === ""|| skill === "" || DateOfBirth === ""
         )
         {
             return next(errorHandler(400,"Please fill all the fields"))
@@ -38,9 +38,31 @@ export const SignUp =  async (req,res,next) => {
 
         const hashedPassword = bcryptjs.hashSync(password, 10)
 
+        function calculateAge(dateOfBirth) {
+
+            const birthDate = new Date(dateOfBirth); // Convert to Date object
+
+            const currentDate = new Date();
+          
+            let age = currentDate.getFullYear() - birthDate.getFullYear();
+          
+            // Adjust age if birthday hasn't occurred yet this year
+            if (
+              currentDate.getMonth() < birthDate.getMonth() ||
+              (currentDate.getMonth() === birthDate.getMonth() &&
+                currentDate.getDate() < birthDate.getDate())
+            ) {
+              age--;
+            }
+          
+            return age;
+        }
+
+        const age = calculateAge(DateOfBirth)
+
         const newUser = new User({
-            email,username,phone,gender,age,skill,
-            password:hashedPassword
+            email,username,phone,gender,skill,Nationality,DateOfBirth,
+            password:hashedPassword,age
         })
 
         await newUser.save()

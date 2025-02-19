@@ -10,6 +10,8 @@ const userSchema = new mongoose.Schema(
 
         email:{type:String , required:true},
 
+        Nationality:{type:String , required:true},
+
         phone:{type:String , required:true},
 
         role:{type:String , default:"user"},

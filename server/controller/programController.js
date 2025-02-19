@@ -13,14 +13,14 @@ export const createProgram = async (req,res,next) => {
         return next(errorHandler(403,"You are not allowed to create a program"))
     }
 
-    const {title,description,category,startDate,endDate,location,applicationDeadline,eligibility,programFee} = req.body
+    const {title,description,category,startDate,endDate,location,applicationDeadline,eligibility,programFee,enrolled} = req.body
 
 
     try
     {
 
         const newProgram = new Program({
-            title,description,category,startDate,endDate,location,applicationDeadline,eligibility,programFee
+            title,description,category,startDate,endDate,location,applicationDeadline,eligibility,programFee,enrolled
         })
 
         if(req.body.instructors)
