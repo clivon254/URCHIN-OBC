@@ -10,6 +10,7 @@ import authRouter from "./router/authRouter.js"
 import userRouter from "./router/userRouter.js"
 import serviceRouter from "./router/serviceRouter.js"
 import blogRouter from "./router/blogRouter.js"
+import roleRouter from "./router/roleRouter.js"
 
 
 const app = express()
@@ -66,6 +67,11 @@ app.use('/api/service', serviceRouter)
 
 
 app.use('/api/blog', blogRouter)
+
+
+app.use('/api/role', roleRouter)
+
+
 
 
 
