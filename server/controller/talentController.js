@@ -4,6 +4,7 @@ import { errorHandler } from "../utilis/error.js"
 
 
 
+
 export const submitTalent = async (req,res,next) => {
     
     if(!req.user.id)
@@ -136,7 +137,7 @@ export const deleteTalent = async (req,res,next) => {
         await Talent.findByIdAndDelete(talentId)
 
         res.status(200).json({success:true , message:"Talent deleted successfully"})
-        
+
     }
     catch(error)
     {
