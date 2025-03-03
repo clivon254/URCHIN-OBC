@@ -17,6 +17,8 @@ import careerRouter from "./router/careerRouter.js"
 import intershipRouter from "./router/intershipRouter.js"
 import programApplicationRouter from "./router/programApplicationRouter.js"
 import careerApplicationRouter from "./router/careerApplicationRouter.js"
+import talentRouter from "./router/talentRouter.js"
+import innovationRouter from "./router/innovationRouter.js"
 
 
 const app = express()
@@ -96,8 +98,10 @@ app.use('/api/careerApplication', careerApplicationRouter)
 app.use('/api/intership', intershipRouter)
 
 
+app.use('/api/talent', talentRouter)
 
 
+app.use('/api/innovation' , innovationRouter)
 
 
 
