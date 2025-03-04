@@ -20,6 +20,7 @@ import careerApplicationRouter from "./router/careerApplicationRouter.js"
 import talentRouter from "./router/talentRouter.js"
 import innovationRouter from "./router/innovationRouter.js"
 import eventRouter from "./router/eventRouter.js"
+import ticketRouter from "./router/ticketRouter.js"
 
 
 const app = express()
@@ -106,6 +107,11 @@ app.use('/api/innovation' , innovationRouter)
 
 
 app.use('/api/event', eventRouter)
+
+
+app.use('/api/ticket', ticketRouter)
+
+
 
 
 

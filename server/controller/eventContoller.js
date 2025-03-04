@@ -12,6 +12,11 @@ export const addEvent = async (req,res,next) => {
 
     const {name,category,date,location,description,image,ticketTypes} = req.body 
 
+    if(ticketTypes.length < 1)
+    { 
+        return next(errorHandler(400 ," Ticket types required"))
+    }
+
     try
     {
 
