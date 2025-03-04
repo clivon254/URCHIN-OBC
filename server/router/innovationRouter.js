@@ -20,7 +20,7 @@ innovationRouter.get('/get-talent/:talentId', getsubmitInnovation)
 innovationRouter.get('/get-talents', getsubmitInnovations)
 
 
-innovationRouter.update('/update-talent/:talentId', updatesubmitInnovation)
+innovationRouter.put('/update-talent/:talentId', updatesubmitInnovation)
 
 
 innovationRouter.delete('/delete-talent/:talentId', deletesubmitInnovation)

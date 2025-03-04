@@ -19,6 +19,7 @@ import programApplicationRouter from "./router/programApplicationRouter.js"
 import careerApplicationRouter from "./router/careerApplicationRouter.js"
 import talentRouter from "./router/talentRouter.js"
 import innovationRouter from "./router/innovationRouter.js"
+import eventRouter from "./router/eventRouter.js"
 
 
 const app = express()
@@ -104,7 +105,7 @@ app.use('/api/talent', talentRouter)
 app.use('/api/innovation' , innovationRouter)
 
 
-
+app.use('/api/event', eventRouter)
 
 
 

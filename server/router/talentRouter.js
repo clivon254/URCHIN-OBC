@@ -19,7 +19,7 @@ talentRouter.get('/get-talent/:talentId', getTalent)
 talentRouter.get('/get-talents', getTalents)
 
 
-talentRouter.update('/update-talent/:talentId', updateTalent)
+talentRouter.put('/update-talent/:talentId', updateTalent)
 
 
 talentRouter.delete('/delete-talent/:talentId', deleteTalent)

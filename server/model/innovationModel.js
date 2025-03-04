@@ -1,21 +1,19 @@
 
 
-
 import mongoose from "mongoose"
 
 
-const innovationSchema = new  mongoose.Schema(
+const innovationSchema = new mongoose.Schema(
     {
-
         technologyResearchTrends:{
 
-        emergingTechnologies:{type:Array , required:true},
+            emergingTechnologies:{type:Array , required:true},
 
-        ongoingProjects:{type:Array , required:true},
+            ongoingProjects:{type:Array , required:true},
 
-        marketAdoption:{type:Array, required:true},
+            marketAdoption:{type:Array, required:true},
 
-        problemSolving:{type:Array , required:true}
+            problemSolving:{type:Array , required:true}
 
         },
 
@@ -25,19 +23,19 @@ const innovationSchema = new  mongoose.Schema(
 
             copyRight:{type:Array , required:true},
 
-            openSauce:{type:Array , required:true},
+            openSource:{type:Array , required:true},
 
         },
 
         fundingInvestData:{
 
-        availableGrants:{type:Array , required:true},
+            availableGrants:{type:Array , required:true},
 
-        crowdFunding:{type:Array , required:true},
+            crowdFunding:{type:Array , required:true},
 
-        rdBudgets:{type:Array , required:true},
+            rdBudgets:{type:Array , required:true},
 
-        governmentInnovationPolicies:{type:Array , required:true},
+            governmentInnovationPolicies:{type:Array , required:true},
 
         },
 
@@ -118,15 +116,13 @@ const innovationSchema = new  mongoose.Schema(
             }
 
         }
-      
     },
     {
-        timestamps: true
+        timestamps: true,
     }
 )
 
-
-const Innovation = mongoose.model('Innovation', innovationSchema)
+const Innovation = mongoose.model('Inovation' , innovationSchema)
 
 
 export default Innovation

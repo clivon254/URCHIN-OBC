@@ -20,7 +20,7 @@ eventRouter.get('/get-events', getEvents)
 eventRouter.put('/update-event/:eventId', verifyToken, updateEvent)
 
 
-eventRouter.put('/delete-event/:eventId', verifyToken, deleteEvent)
+eventRouter.delete('/delete-event/:eventId', verifyToken, deleteEvent)
 
 
 
