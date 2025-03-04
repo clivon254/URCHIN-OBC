@@ -5,8 +5,6 @@ import { errorHandler } from "../utilis/error.js"
 import { generateRandomNumber } from "../utilis/verify.js"
 import QRCode from "qrcode"
 import PDFDocument from "pdfkit"
-import fs from "fs"
-import path from "path"
 import {initializeApp} from "firebase/app"
 import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage"
 

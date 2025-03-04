@@ -21,6 +21,7 @@ import talentRouter from "./router/talentRouter.js"
 import innovationRouter from "./router/innovationRouter.js"
 import eventRouter from "./router/eventRouter.js"
 import ticketRouter from "./router/ticketRouter.js"
+import donationRouter from "./router/donationRouter.js"
 
 
 const app = express()
@@ -114,6 +115,11 @@ app.use('/api/event', eventRouter)
 
 
 app.use('/api/ticket', ticketRouter)
+
+
+app.use('/api/donation', donationRouter)
+
+
 
 
 
