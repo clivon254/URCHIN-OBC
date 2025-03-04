@@ -44,6 +44,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 
 
+app.use('/uploads', express.static('uploads'))
+
+
+
 // app.use(morgan("dev"))
 
 

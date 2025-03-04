@@ -17,7 +17,8 @@ const ticketSchema = new mongoose.Schema(
 
         pdfTicket:{type:String},
 
-        status:{type:String , required:true , enum:['available','booked','used']}
+        status:{type:String , default:"available" , enum:['available','booked','used']}
+        
     }, 
     {
         timestamps: true

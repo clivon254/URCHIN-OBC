@@ -26,3 +26,16 @@ export const verifyToken = (req,res,next) => {
     })
 
 }
+
+
+export const generateRandomNumber = () => {
+
+    const letters = "ABCDEFGHIJLMNOPQRSTUVWXWZ"
+
+    const randomLetter = letters[Math.floor(Math.random() * letters.length)]
+
+    const randomNumbers = Math.floor(Math.random() * 9000) + 1000
+
+    return `${randomLetter}${randomNumbers}`
+    
+}
