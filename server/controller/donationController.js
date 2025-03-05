@@ -85,7 +85,7 @@ export const mpesaDonation = async (req,res,next) => {
                 "PartyA":`254${phone}`,    
                 "PartyB":shortcode,    
                 "PhoneNumber":`254${phone}`,    
-                "CallBackURL": `http://localhost:3000/api/donation/callback?donationId=${donation._id}`,    
+                "CallBackURL": `https://d7b8-41-90-172-184.ngrok-free.app/api/donation/callback?donationId=${donation._id}`,    
                 "AccountReference":"URCHIN'OBC Donation",    
                 "TransactionDesc":"Test"
              }
@@ -104,7 +104,7 @@ export const mpesaDonation = async (req,res,next) => {
 
                 let resData = response.data 
 
-                res.status(200).json({success:true , resData})
+                res.status(200).json({success:true , resData , donation})
             })
             .catch((err) => {
 
@@ -235,7 +235,7 @@ export const confirmDonation = async (req,res,next) => {
                 console.log("donation updated")        
 
             }
-            
+
         }
         else
         {
