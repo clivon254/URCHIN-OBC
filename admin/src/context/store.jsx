@@ -1,5 +1,5 @@
 
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 
 
@@ -8,7 +8,14 @@ export const StoreContext = createContext(null)
 
 export default function StoreContextProvider (props){
 
-    const contextValue = {}
+    const url = `http://localhost:3000`
+
+    const [token , setToken] = useState()
+
+    const contextValue = {
+        url,
+        token, setToken
+    }
 
     return(
 

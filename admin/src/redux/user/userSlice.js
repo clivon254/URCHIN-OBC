@@ -35,7 +35,7 @@ const userSlice = createSlice({
 
         },
 
-        signInFaiure:(state,action) => {
+        signInFailure:(state,action) => {
 
             state.loading = false
 
