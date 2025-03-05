@@ -11,6 +11,7 @@ import { toast } from 'sonner'
 import { IoMdEyeOff } from 'react-icons/io'
 import { IoEye } from 'react-icons/io5'
 import { Alert } from 'flowbite-react'
+import Loading from '../components/Loading'
 
 
 
@@ -50,7 +51,7 @@ export default function SignIn() {
 
       if(res.data.success)
       {
-        
+
         dispatch(signInSuccess(res.data.rest))
 
         toast.success("signed in successfully")
@@ -199,14 +200,12 @@ export default function SignIn() {
               {/* button */}
               <button 
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-secondaryBackground px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-secondaryBackground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondaryBackground disabled:cursor-not-allowed cursor-pointer disabled:bg-secondaryBackground/80 "
+                className="flex w-full justify-center rounded-md bg-secondaryBackground px-3 py-3 text-sm/6 font-semibold text-white shadow-xs hover:bg-secondaryBackground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondaryBackground disabled:cursor-not-allowed cursor-pointer disabled:bg-secondaryBackground/90 "
                 disabled={loading}
               >
                 {loading ? 
                   (
-                    <div className="">
-                      Loading  . . . . 
-                    </div>
+                    <Loading />
                   ) 
                   : 
                   ("sign in")}
