@@ -2,7 +2,7 @@
 
 import React, { useContext } from 'react'
 import { StoreContext } from '../context/store'
-import { HiExclamation, HiExclamationCircle } from "react-icons/hi"
+import { HiExclamationCircle } from "react-icons/hi"
 
 
 
@@ -10,7 +10,7 @@ export default function Delete({product,item,handleDelete}) {
 
     const {setOpenDelete} = useContext(StoreContext)
 
-  return (
+  return ( 
 
     <div className="w-full h-full flex items-center justify-center fixed top-0 left-0 bg-black/50 backdrop-blur-sm">
 
@@ -18,7 +18,27 @@ export default function Delete({product,item,handleDelete}) {
 
             <HiExclamationCircle size={50} className="mx-auto"/>
 
-            <h2 className="text-center text"></h2>
+            <h2 className="text-center text-xl font-semibold text-slate-700">
+                Are sure you want to delete {product} , {item} ?
+            </h2>
+            
+            <div className="flex justify-around items-center gap-x-4">
+
+                <button 
+                    className="buttonDelete"
+                    onClick={() => handleDelete()}
+                >
+                    Yes, Im sure
+                </button>
+
+                <button 
+                    className="buttonCancel"
+                    onClick={() => setOpenDelete(false)}
+                >
+                    No , Cancel 
+                </button>
+
+            </div>
 
         </div>
 

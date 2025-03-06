@@ -1,7 +1,7 @@
 
 import { createContext, useState } from "react";
 import { MdHome } from "react-icons/md";
-
+import { FaUsers } from "react-icons/fa"
 
 
 export const StoreContext = createContext(null)
@@ -9,7 +9,9 @@ export const StoreContext = createContext(null)
 
 export default function StoreContextProvider (props){
 
-    const url = `http://localhost:3000`
+    // const url = `http://localhost:3000`
+
+    const url ="https://urchin-obc-server.onrender.com"
 
     const [token , setToken] = useState()
 
@@ -24,9 +26,9 @@ export default function StoreContextProvider (props){
             icon:<MdHome />
         },
         {
-            title:"roles",
-            link:"/roles",
-            icon:<MdHome />
+            title:"Users",
+            link:"/users",
+            icon:<FaUsers />
         },
         {
             title:"Dashboard",

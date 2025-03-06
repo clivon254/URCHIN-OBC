@@ -34,6 +34,16 @@
   @apply flex w-full justify-center rounded-md bg-secondaryBackground px-3 py-1.5 text-sm/6 font-semibold text-white shadow-md hover:bg-secondaryBackground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondaryBackground disabled:cursor-not-allowed cursor-pointer disabled:bg-secondaryBackground/80 
 }
 
+.buttonDelete
+{
+  @apply flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-md hover:bg-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondaryBackground disabled:cursor-not-allowed cursor-pointer disabled:bg-secondaryBackground/80 
+}
+
+.buttonCancel
+{
+  @apply flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm/6 font-semibold text-white shadow-md hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed cursor-pointer disabled:bg-black/80 
+}
+
 
 /* ************************* LOADING  ************************* */
 .dots-container {

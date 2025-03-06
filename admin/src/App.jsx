@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard'
 import DashSidebar from './components/DashSidebar'
 import Header from './components/Header'
 import Profile from './pages/Profile'
+import Users from './pages/Users'
 
 
 const LayOut = () => {
@@ -73,6 +74,8 @@ export default function App() {
               <Route path="/" element={<Dashboard/>}/>
 
               <Route path="/profile" element={<Profile/>}/>
+
+              <Route path="/users" element={<Users/>}/>
               
             </Route>
 
