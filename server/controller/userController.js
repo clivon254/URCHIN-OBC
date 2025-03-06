@@ -66,7 +66,7 @@ export const updateUser = async (req,res,next) => {
 
     if(!req.user.isAdmin && !req.user.id)
     {
-        return next(errorHandler(403,"you are not allwed to update the user"))
+        return next(errorHandler(403,"You are not allwed to update the user"))
     }
 
     const {userId} = req.params
@@ -86,7 +86,8 @@ export const updateUser = async (req,res,next) => {
             req.body.password = bcryptjs.hashSync(req.body.password)
         }
 
-        const updatedUser = await User.findByIdAndUpdate(userId ,
+        const updatedUser = await User.findByIdAndUpdate(
+            userId ,
             {
                 $set:{
                     username:req.body.username,
@@ -95,13 +96,14 @@ export const updateUser = async (req,res,next) => {
                     skill:req.body.skill,
                     role:req.body.role,
                     isAdmin:req.body.isAdmin,
-                    age:req.body.age
+                    age:req.body.age,
+                    profilePicture:req.body.profilePicture
                 }
             },
             {new:true}
         )
 
-        const {password , ...rest} = updateUser._doc
+        const {password , ...rest} = updatedUser._doc
 
         res.status(200).json({success:true , rest})
 

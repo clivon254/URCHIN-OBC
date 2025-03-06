@@ -136,7 +136,7 @@ export default function Header() {
             <div className="absolute left-0 w-[70%] h-full bg-white space-y-6 overflow-y-scroll px-3">
                 
                 {/* toggle button */}
-                <div className="flex justify-end p-2">
+                <div className="flex justify-end p-2 cursor-pointer">
 
                     <span className="" onClick={() => setOpen(false)}>
 

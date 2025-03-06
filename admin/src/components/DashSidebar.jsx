@@ -18,8 +18,8 @@ export default function DashSidebar() {
 
           <NavLink
             key={index}
-            to={nav.path}
-            onClick={() => setOpen(false)}
+            to={nav.link}
+            onClick={() => setOpen(false) }
           >
 
             <span className="flex items-center gap-x-5">

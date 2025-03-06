@@ -4,12 +4,45 @@
 @tailwind utilities;
 
 
+
+
+.title
+{
+  @apply text-xl/9 font-bold
+}
+
+
+.title2
+{
+  @apply text-3xl/9 font-bold
+}
+
+
+.title3
+{
+  @apply text-5xl/9 font-bold
+}
+
+
+.input
+{
+  @apply block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-secondaryBackground sm:text-sm/6
+}
+
+.button
+{
+  @apply flex w-full justify-center rounded-md bg-secondaryBackground px-3 py-1.5 text-sm/6 font-semibold text-white shadow-md hover:bg-secondaryBackground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondaryBackground disabled:cursor-not-allowed cursor-pointer disabled:bg-secondaryBackground/80 
+}
+
+
+/* ************************* LOADING  ************************* */
 .dots-container {
 
     @apply flex items-center justify-center h-full w-full mb-1
     
 
 }
+
   
 .dot {
     height: 12px;
@@ -20,22 +53,27 @@
     animation: wabiro 1.5s infinite ease-in-out;
   }
   
+
 .dot:last-child {
     margin-right: 0;
   }
   
+
 .dot:nth-child(1) {
     animation-delay: -0.3s;
   }
   
+
 .dot:nth-child(2) {
     animation-delay: -0.1s;
   }
+
   
 .dot:nth-child(3) {
     animation-delay: 0.1s;
 }
   
+
   @keyframes wabiro {
     0% {
       transform: scale(0.8);
