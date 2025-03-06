@@ -15,6 +15,8 @@ export default function StoreContextProvider (props){
 
     const [open ,setOpen ] = useState(false)
 
+    const [openDelete ,setOpenDelete] = useState(false)
+
     const [Navlinks ,setNavlinks] = useState([
         {
             title:"Dashboard",
@@ -54,12 +56,12 @@ export default function StoreContextProvider (props){
     ])
 
 
-
     const contextValue = {
         url,
         token, setToken,
         open , setOpen ,
-        Navlinks , setNavlinks
+        Navlinks , setNavlinks,
+        openDelete , setOpenDelete
     }
 
     return(

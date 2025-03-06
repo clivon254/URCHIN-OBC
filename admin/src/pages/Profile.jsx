@@ -322,6 +322,21 @@ export default function Profile() {
                 }
             </button>
 
+            {/* delete && sign-out */}
+            <div className="flex items-center justify-between cursor-pointer text-sm font-semibold">
+                
+                {/* delete */}
+                <span className="text-red-500 hover:underline">
+                    Delete Account
+                </span>
+                
+                {/* sign out */}
+                <span className="text-red-500 hover:underline ">
+                    sign out
+                </span>
+
+            </div>
+
             {error && (
 
                 <Alert color="failure">{error}</Alert>
