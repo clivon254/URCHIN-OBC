@@ -6,7 +6,11 @@ export default function Dashboard() {
 
   return (
     
-    <div>Dashboard</div>
+    <div>
+
+      <h1 className="text-5xl text-primaryBackground">Dashboard</h1>
+
+    </div>
 
   )
 

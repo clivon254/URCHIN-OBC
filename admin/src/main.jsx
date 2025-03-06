@@ -6,6 +6,13 @@ import './index.css'
 import App from './App.jsx'
 import { persistor , store } from './redux/store.js'
 import StoreContextProvider from './context/store.jsx'
+import axios from "axios"
+
+
+
+// set axios to include credentials globally
+axios.defaults.withCredentials = true
+
 
 
 createRoot(document.getElementById('root')).render(

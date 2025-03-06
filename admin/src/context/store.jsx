@@ -1,5 +1,6 @@
 
 import { createContext, useState } from "react";
+import { MdHome } from "react-icons/md";
 
 
 
@@ -12,9 +13,53 @@ export default function StoreContextProvider (props){
 
     const [token , setToken] = useState()
 
+    const [open ,setOpen ] = useState(false)
+
+    const [Navlinks ,setNavlinks] = useState([
+        {
+            title:"Dashboard",
+            link:"/",
+            icon:<MdHome />
+        },
+        {
+            title:"roles",
+            link:"/roles",
+            icon:<MdHome />
+        },
+        {
+            title:"Dashboard",
+            link:"/",
+            icon:<MdHome />
+        },
+        {
+            title:"Dashboard",
+            link:"/",
+            icon:<MdHome />
+        },
+        {
+            title:"Dashboard",
+            link:"/",
+            icon:<MdHome />
+        },
+        {
+            title:"Dashboard",
+            link:"/",
+            icon:<MdHome />
+        },
+        {
+            title:"Dashboard",
+            link:"/",
+            icon:<MdHome />
+        }
+    ])
+
+
+
     const contextValue = {
         url,
-        token, setToken
+        token, setToken,
+        open , setOpen ,
+        Navlinks , setNavlinks
     }
 
     return(
