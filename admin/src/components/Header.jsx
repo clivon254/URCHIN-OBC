@@ -149,7 +149,7 @@ export default function Header() {
                 <img 
                     src={LOGOO} 
                     alt="" 
-                    className="h-12 w-16"
+                    className="h-12 w-16 ml-5"
                 />
 
                 <DashSidebar />
