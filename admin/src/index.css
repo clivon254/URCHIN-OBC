@@ -29,6 +29,7 @@
   @apply block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-secondaryBackground sm:text-sm/6
 }
 
+
 .button
 {
   @apply flex w-full justify-center rounded-md bg-secondaryBackground px-3 py-1.5 text-sm/6 font-semibold text-white shadow-md hover:bg-secondaryBackground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondaryBackground disabled:cursor-not-allowed cursor-pointer disabled:bg-secondaryBackground/80 
@@ -44,8 +45,21 @@
   @apply flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm/6 font-semibold text-white shadow-md hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed cursor-pointer disabled:bg-black/80 
 }
 
+.tabler
+{
+  @apply table-auto overflow-x-scroll md:mx-auto scrollbar 
+  scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 
+  dark:scrollbar-thumb-slate-500 
+}
 
-/* ************************* LOADING  ************************* */
+.loader
+{
+  @apply block animate-pulse bg-slate-300
+}
+
+
+/* ************************* LOADING  START ************************* */
+
 .dots-container {
 
     @apply flex items-center justify-center h-full w-full mb-1
@@ -103,3 +117,5 @@
       box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
     }
   }
+
+/* ************************* LOADING  END ************************* */

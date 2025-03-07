@@ -45,7 +45,7 @@ export default function Header() {
 
     <>
 
-        <header className="p-3">
+        <header className="p-3 border-b border-primaryBackground">
 
             <div className="flex items-center justify-between">
 

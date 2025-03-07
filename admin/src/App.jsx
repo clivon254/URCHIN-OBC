@@ -11,6 +11,7 @@ import DashSidebar from './components/DashSidebar'
 import Header from './components/Header'
 import Profile from './pages/Profile'
 import Users from './pages/Users'
+import SignUp from './pages/SignUp'
 
 
 const LayOut = () => {
@@ -80,6 +81,8 @@ export default function App() {
             </Route>
 
             <Route path="/sign-in" element={<SignIn/>}/>
+
+            <Route path="/sign-up" element={<SignUp/>}/>
 
             <Route path="/forgot-password" element={<ForgotPassword/>}/>
 

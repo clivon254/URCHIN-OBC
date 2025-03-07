@@ -20,8 +20,8 @@ export default function Error({retry}) {
         <div className="text-center">
 
             <span 
-                className={() => retry()}
-                onClick="border border-slate-700 px-5 rounded-full font-semibold cursor-pointer"
+                conClick={() => retry()}
+                className="border border-textPrimary px-5 py-1 rounded-full font-semibold cursor-pointer"
             >
                 Retry
             </span>
