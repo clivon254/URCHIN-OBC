@@ -33,7 +33,8 @@ app.use(
     cors({
         origin:["http://localhost:3000","http://localhost:5173","https://urchin-obc-server.onrender.com","https://urchin-obc-admin.onrender.com"],
         methods:["GET","POST","DELETE","PUT"],
-        credentials:true
+        credentials:true,
+        allowedHeaders: ["Content-Type", "Authorization"]
     })
 )
 

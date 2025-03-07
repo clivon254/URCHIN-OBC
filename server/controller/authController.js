@@ -120,8 +120,16 @@ export const SignIn =  async (req,res,next) => {
 
         const {password:pass , ...rest} = user._doc
 
+        
         res.status(200)
-            .cookie('access_token', token ,{httpOnly:true})
+            .cookie('access_token', token ,{
+                httpOnly: true,
+                secure: true, // Required for HTTPS
+                sameSite: 'none', // Critical for cross-domain cookies
+                //domain: '.render.com', Optional - try with and without this
+                // If using a custom domain, you might need to adjust this
+                maxAge: 12 * 60 * 60 * 1000 // 12 hours in milliseconds
+            })
             .json({success:true , rest})
 
 
