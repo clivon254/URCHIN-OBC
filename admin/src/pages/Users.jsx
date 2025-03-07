@@ -10,6 +10,9 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 import axios from "axios"
 import {toast} from 'sonner'
 import Delete from '../components/Delete'
+import _ from "lodash"
+
+
 
 
 export default function Users() {
@@ -26,7 +29,7 @@ export default function Users() {
 
     const [userToDelete , setUserToDelete] = useState("")
 
-    const [filteredUser , setFilteredUser] = useState(users)
+    const [filteredUsers , setFilteredUsers] = useState(users)
 
    
 
@@ -35,9 +38,9 @@ export default function Users() {
 
         const searchUser = e.target.value 
 
-        const filtered = users.map((product) => product.email.toLowerCase().includes(searchUser.toLowerCase()))
+        const filtered = users?.filter((product) => product.email.toLowerCase().includes(searchUser.toLowerCase()))
 
-        setFilteredUser(filtered)
+        setFilteredUsers(filtered)
 
     } 
 
@@ -99,6 +102,124 @@ export default function Users() {
         fetchUser()
 
     },[userToDelete])
+
+
+    useEffect(() => {
+
+        setFilteredUsers(users)
+
+    },[])
+
+    // ***  PAGINATION  START***//
+  
+    const [page ,setPage] = useState(1)
+  
+    const [limit ,setLimit] = useState(5)
+
+    const [siblings ,setSiblings] = useState(1)
+
+
+    // getproducts
+    const getProducts = (page,limit) => {
+
+        let array = []
+
+        for(let i = (page -1) * limit ; i < (page * limit) && filteredUsers[i] ; i++)
+        {
+            array.push(filteredUsers[i])
+        }
+
+        return array;
+
+    }
+
+    const finalUsers = getProducts(page,limit)
+
+    const finalLength = filteredUsers?.length
+
+    const totalPage = Math.ceil(finalLength / limit)
+
+
+    // returnPaginationPage
+    const returnPaginationPage = (totalPage ,page ,limit,siblings) => {
+
+        let totalPageNoInArrray = 7 + siblings
+
+        if(totalPageNoInArrray >= totalPage)
+        {
+            return _.range(1 ,totalPage + 1)
+        }
+
+        let leftSiblingsIndex = Math.max(page - siblings , 1)
+
+        let rightSiblingsIndex = Math.min(page + siblings, totalPage)
+
+
+        let showLeftDots = leftSiblingsIndex > 2 ;
+
+        let showRightDots = rightSiblingsIndex < totalPage - 2
+
+        if(!showLeftDots && showRightDots)
+        {
+            let leftItemsCount = 3 + 2 * siblings ;
+
+            let leftRange = _.range(1 ,leftItemsCount + 1)
+
+            return [...leftRange ,"...", totalPage]
+        }
+        else if(showLeftDots && !showRightDots)
+        {
+            let rightItemsCount = 3 + 2 * siblings
+
+            let rightRange = _.range(totalPage - rightItemsCount + 1,totalPage +1)
+
+            return [1, "...", ...rightRange]
+        }
+        else
+        {
+            let middleRange = _.range(leftSiblingsIndex, rightSiblingsIndex + 1)
+
+            return[1,"...",...middleRange,"...",totalPage]
+        }
+
+    }
+
+    const array = returnPaginationPage(totalPage,page,limit,siblings)
+
+    // handlePageChange
+    const handlePageChange = (value) => {
+
+        if(value === "&laquo;")
+        {
+            setPage(1)
+        }
+        else if(value === "&lsquo;")
+        {
+            if(page !== 1)
+            {
+                setPage(page -1)
+            }
+        }
+        else if(value === "&raquo;" )
+        {
+            if(page !== totalPage)
+            {
+                setPage(page+1)
+            }
+        }
+        else if(value === "&rsquo;")
+        {
+            setPage(totalPage)
+        }
+        else
+        {
+            setPage(value)
+        }
+
+    }
+
+
+  // ***  PAGINATION  END ***//
 
   return (
 
@@ -175,11 +296,11 @@ export default function Users() {
                     {!usersLoading && !usersError &&  (
 
                         <>
-                            {users.length > 0 ? (
+                            {finalUsers.length > 0 ? (
 
                                 <>
 
-                                    {users.map((user,index) => (
+                                    {finalUsers.map((user,index) => (
 
                                         <Table.Body key="index">
 
@@ -199,7 +320,7 @@ export default function Users() {
 
                                             </Table.Cell>
 
-                                            <Table.Cell className={`${user.isAdmin ? "text-red-500 font-semibold uppercase " :""} `}>
+                                            <Table.Cell className={` text-nowrap ${user.isAdmin ? "text-red-500 font-semibold uppercase " :""} `}>
                                                 {user?.username}
                                             </Table.Cell>
 
@@ -208,7 +329,8 @@ export default function Users() {
                                             </Table.Cell>
 
                                             <Table.Cell>
-                                                {user?.role}
+                                                <div className="text-nowrap text-textSecondary font-semibold">{user?.role}</div>
+                                                
                                             </Table.Cell>
 
                                             <Table.Cell>
@@ -217,7 +339,7 @@ export default function Users() {
 
                                                     <span className="text-blue-500 cursor-pointer">
 
-                                                        <Link to="/update-user">
+                                                        <Link to={`/update-user/${user?._id}`}>
 
                                                             <FaEdit size={20}/>
 
@@ -236,7 +358,7 @@ export default function Users() {
                                                                 setOpenDelete(true)
 
                                                                 setUserToDelete(user._id)
-                                                                
+
                                                             }}
                                                         />
 
@@ -341,7 +463,58 @@ export default function Users() {
 
                 </Table>
 
+
             </div>
+
+            {/* pagination */}
+            {finalUsers.length > 0 && (
+
+                <div className="w-full flex justify-center items-center">
+
+                    <ul className="flex py-4 ">
+
+                        <li className="paginate-left">
+                            <span onClick={() => handlePageChange("&laquo;")} className="">&laquo;</span>
+                        </li>
+
+                        <li className="paginate">
+                            <span onClick={() => handlePageChange("&lsquo;")} className="">&lsaquo;</span>
+                        </li>
+
+                        {array.map(value => {
+
+                            if(value === page)
+                            {
+                                return (
+                                    <li className="paginate-active">
+                                        <span onClick={() => handlePageChange(value)} className="">{value}</span>
+                                    </li>
+                                )
+                            }
+                            else
+                            {
+                                return (
+                                    <li className="font-bold paginate">
+                                        <span onClick={() => handlePageChange(value)} className="">{value}</span>
+                                    </li>
+                                )
+                            }
+
+                        })}
+                        
+                        <li className="paginate">
+                            <span onClick={() => handlePageChange("&raquo;")} className="">&rsaquo;</span>
+                        </li>
+
+                        <li className="paginate-right">
+                            <span onClick={() => handlePageChange("&rsquo;")} className="">&raquo;</span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            )}
 
         </section>
 

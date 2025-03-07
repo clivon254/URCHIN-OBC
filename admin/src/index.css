@@ -23,6 +23,11 @@
   @apply text-5xl/9 font-bold
 }
 
+.label
+{
+  @apply text-sm font-semibold
+}
+
 
 .input
 {
@@ -45,6 +50,7 @@
   @apply flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm/6 font-semibold text-white shadow-md hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed cursor-pointer disabled:bg-black/80 
 }
 
+
 .tabler
 {
   @apply table-auto overflow-x-scroll md:mx-auto scrollbar 
@@ -52,11 +58,31 @@
   dark:scrollbar-thumb-slate-500 
 }
 
+
 .loader
 {
   @apply block animate-pulse bg-slate-300
 }
 
+.paginate
+{
+  @apply border border-primaryBackground bg-primaryBackground text-white text-xl flex items-center justify-center h-10 w-10 cursor-pointer 
+}
+
+.paginate-right
+{
+  @apply border border-primaryBackground bg-primaryBackground text-white text-xl flex items-center justify-center h-10 w-10 cursor-pointer  rounded-r-md
+}
+
+.paginate-left
+{
+  @apply border border-primaryBackground bg-primaryBackground text-white text-xl flex items-center justify-center h-10 w-10 cursor-pointer  rounded-l-md
+}
+
+.paginate-active
+{
+  @apply font-bold border border-primaryBackground bg-secondaryBackground flex items-center justify-center h-10 w-10 cursor-pointer  text-white
+}
 
 /* ************************* LOADING  START ************************* */
 

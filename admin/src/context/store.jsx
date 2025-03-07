@@ -1,7 +1,7 @@
 
 import { createContext, useEffect, useState } from "react";
-import { MdHome } from "react-icons/md";
-import { FaUsers } from "react-icons/fa"
+import { MdHome, MdPallet, MdPattern, MdRoomService } from "react-icons/md";
+import { FaCashRegister, FaProjectDiagram, FaRegFolder, FaServicestack, FaUsers } from "react-icons/fa"
 import axios from "axios"
 
 
@@ -34,29 +34,29 @@ export default function StoreContextProvider (props){
             icon:<FaUsers />
         },
         {
-            title:"Dashboard",
-            link:"/",
-            icon:<MdHome />
+            title:"Partners",
+            link:"/partners",
+            icon:<MdPattern/>
         },
         {
-            title:"Dashboard",
-            link:"/",
-            icon:<MdHome />
+            title:"Services",
+            link:"/services",
+            icon:<FaServicestack/>
         },
         {
-            title:"Dashboard",
-            link:"/",
-            icon:<MdHome />
+            title:"Roles",
+            link:"/roles",
+            icon:<FaRegFolder/>
         },
         {
-            title:"Dashboard",
-            link:"/",
-            icon:<MdHome />
+            title:"Program",
+            link:"/programs",
+            icon:<FaProjectDiagram />
         },
         {
-            title:"Dashboard",
-            link:"/",
-            icon:<MdHome />
+            title:"Career",
+            link:"/careers",
+            icon:<FaCashRegister />
         }
     ])
 
@@ -65,6 +65,12 @@ export default function StoreContextProvider (props){
     const [usersLoading , setUsersLoading] = useState(false)
 
     const [usersError , setUsersError] = useState(false)
+
+    const [roles , setRoles] = useState([])
+
+    const [rolesLoading , setRolesLoading] = useState(false)
+
+    const [rolesError , setRolesError] = useState(false)
 
 
     // fetchUsers
@@ -98,10 +104,43 @@ export default function StoreContextProvider (props){
 
     }
 
+    // fetchUsers
+    const fetchRoles = async () => {
+
+        try
+        {
+            setRolesLoading(true)
+
+            setRolesError(false)
+
+            const res = await axios.get(url + "/api/role/get-roles")
+
+            if(res.data.success)
+            {
+                setRolesLoading(false)
+
+                setRoles(res.data.roles)
+            }
+
+        }
+        catch(error)
+        {
+            console.log(error.message)
+
+            setUsersError(true)
+
+            setUsersLoading(false)
+
+        }
+
+    }
+
 
     useEffect(() => {
 
         fetchUsers()
+
+        fetchRoles()
 
     },[])
 
@@ -116,8 +155,11 @@ export default function StoreContextProvider (props){
         users , setUsers ,
         usersLoading , setUsersLoading ,
         usersError , setUsersError ,
-        fetchUsers 
-
+        fetchUsers ,
+        roles , setRoles ,
+        rolesLoading , setRolesLoading ,
+        rolesError , setRolesError ,
+        fetchRoles ,
     }
 
     return(

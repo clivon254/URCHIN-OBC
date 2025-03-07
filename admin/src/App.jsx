@@ -12,6 +12,22 @@ import Header from './components/Header'
 import Profile from './pages/Profile'
 import Users from './pages/Users'
 import SignUp from './pages/SignUp'
+import UpdateUser from './pages/UpdateUser'
+import Partner from './pages/Partner'
+import AddPartner from './pages/AddPartner'
+import UpdatePartner from './pages/UpdatePartner'
+import Services from './pages/Services'
+import AddService from './pages/AddService'
+import UpdateService from './pages/UpdateService'
+import Roles from './pages/Roles'
+import AddRole from './pages/AddRole'
+import UpdateRole from './pages/UpdateRole'
+import UpdateProgram from './pages/UpdateProgram'
+import Program from './pages/Program'
+import AddProgram from './pages/AddProgram'
+import Career from './pages/Career'
+import AddCareer from './pages/AddCareer'
+import UpdateCareer from './pages/UpdateCareer'
 
 
 const LayOut = () => {
@@ -77,6 +93,38 @@ export default function App() {
               <Route path="/profile" element={<Profile/>}/>
 
               <Route path="/users" element={<Users/>}/>
+
+              <Route path="/update-user/:userId" element={<UpdateUser/>}/>
+
+              <Route path="/partners" element={<Partner/>}/>
+
+              <Route path="/add-partner" element={<AddPartner/>}/>
+
+              <Route path="/update-partner/:patnerId" element={<UpdatePartner/>}/>
+
+              <Route path="/services" element={<Services/>}/>
+
+              <Route path="/add-service" element={<AddService/>}/>
+
+              <Route path="/update-service/:patnerId" element={<UpdateService/>}/>
+
+              <Route path="/roles" element={<Roles/>}/>
+
+              <Route path="/add-role" element={<AddRole/>}/>
+
+              <Route path="/update-role/:roleId" element={<UpdateRole/>}/>
+
+              <Route path="/programs" element={<Program/>}/>
+
+              <Route path="/add-program" element={<AddProgram/>}/>
+
+              <Route path="/update-program/:programId" element={<UpdateProgram/>}/>
+
+              <Route path="/careers" element={<Career/>}/>
+
+              <Route path="/add-career" element={<AddCareer/>}/>
+
+              <Route path="/update-career/:careerId" element={<UpdateCareer/>}/>
               
             </Route>
 

@@ -20,6 +20,8 @@ export default function DashSidebar() {
             key={index}
             to={nav.link}
             onClick={() => setOpen(false) }
+            className={({isActive}) => isActive ? "bg-primaryBackground text-white px-3 py-1 text-base/9 font-semibold rounded-xl" : "text-base/9 font-semibold"}
+
           >
 
             <span className="flex items-center gap-x-5">
