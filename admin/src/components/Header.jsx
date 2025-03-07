@@ -31,7 +31,7 @@ export default function Header() {
         {
             const res = await axios.post(url + "/api/auth/sign-out")
 
-            if(res.success.data)
+            if(res.data.success)
             {
                 dispatch(signOutSuccess())
 
