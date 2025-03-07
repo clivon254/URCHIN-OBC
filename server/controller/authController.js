@@ -141,6 +141,23 @@ export const SignIn =  async (req,res,next) => {
 
 }
 
+export const SignOut = async (req,res,next) => {
+
+    try
+    {
+
+        res.clearCookie('access_access',{httpOnly:true ,secure:true , sameSite:"none"})
+
+        res.status(200).json({success:true , message:`sign out successfully`})
+        
+    }
+    catch(error)
+    {
+       next(error)
+    }
+
+}
+
 
 export const ForgotPassword =  async (req,res,next) => {
 

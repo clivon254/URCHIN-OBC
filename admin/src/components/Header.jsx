@@ -23,15 +23,20 @@ export default function Header() {
     const navigate = useNavigate()
 
     // handleSignOut
-    const handleSignOut = () => {
+    const handleSignOut = async () => {
 
         try
         {
-            dispatch(signOutSuccess())
+            const res = await axios.post(url + "/api/auth/sign-out")
 
-            toast.success("you have sign out successfully")
+            if(res.success.data)
+            {
+                dispatch(signOutSuccess())
 
-            navigate("/sign-in")
+                toast.success("you have sign out successfully")
+
+                navigate("/sign-in")
+            }
 
         }
         catch(error)
