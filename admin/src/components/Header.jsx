@@ -10,11 +10,13 @@ import { MdClose, MdMenu } from "react-icons/md"
 import LOGOO from "../assets/LOGOO.png"
 import { Avatar, Dropdown } from 'flowbite-react'
 import DashSidebar from './DashSidebar'
+import axios from "axios"
+
 
 
 export default function Header() {
 
-    const {open ,setOpen } = useContext(StoreContext)
+    const {url, open ,setOpen } = useContext(StoreContext)
 
     const {currentUser} = useSelector(state => state.user )
 
