@@ -10,7 +10,7 @@ export default function DashSidebar() {
 
   return (
     
-    <aside className="w-full ">
+    <aside className="w-full p-5">
 
       <div className="flex flex-col gap-y-4">
 
